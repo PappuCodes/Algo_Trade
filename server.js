@@ -57,3 +57,4 @@ wss.on('message', async function(message) {
 });
 
 
+console.log('hello');
