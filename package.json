@@ -8,5 +8,4 @@
   "dependencies": {
     "@alpacahq/alpaca-trade-api": "^4.0.0",
     "ws": "^8.0.0"
-  }
-}
+  }}
