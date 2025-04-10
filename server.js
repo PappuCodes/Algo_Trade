@@ -32,18 +32,19 @@ wss.on('message', async function(message) {
         for (const event of events) {
             if (event.T === "n" && Array.isArray(event.symbols) && event.symbols.length > 0) {
                 const tickerSymbol = event.symbols[0];
-                console.log(`📈 News came in for ${tickerSymbol}, placing order...`);
+                const headline = event.headline;
+                console.log(`${headline} 🗞 News came in for ${tickerSymbol}, placing order...`);
 
                 try {
                     const order = await alpaca.createOrder({
                         symbol: tickerSymbol,
                         qty: 1,
-                        side: 'buy',
+                        side: 'sell',
                         type: 'market',
                         time_in_force: 'day'
                     });
 
-                    console.log(`✅ Order placed: ${order.id}`);
+                    console.log(`💸 Selling ${tickerSymbol}: ${order.id}`);
                 } catch (orderErr) {
                     console.error(`❌ Order failed for ${tickerSymbol}:`, orderErr.message);
                 }
