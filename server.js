@@ -33,7 +33,7 @@ wss.on('message', async function(message) {
             if (event.T === "n" && Array.isArray(event.symbols) && event.symbols.length > 0) {
                 const tickerSymbol = event.symbols[0];
                 const headline = event.headline;
-                console.log(`${headline} 🗞 News came in for ${tickerSymbol}, placing order...`);
+                console.log(`${headline}, preparing to sell ${tickerSymbol}...`);
 
                 try {
                     const order = await alpaca.createOrder({
